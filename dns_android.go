@@ -16,10 +16,10 @@ func init() {
 
 	var dialer net.Dialer
 	dnsServers := []string{
-		"[2606:4700:4700::1111]:53", // Cloudflare IPv6
-		"[2606:4700:4700::1001]:53", // Cloudflare IPv6
-		"1.1.1.1:53",                // Cloudflare IPv4
-		"1.0.0.1:53",                // Cloudflare IPv4
+		"[2a10:50c0::ad1:ff]:53", // Cloudflare IPv6
+		"[2a10:50c0::ad2:ff]:53", // Cloudflare IPv6
+		"94.140.14.14:53",                // Cloudflare IPv4
+		"94.140.15.15:53",                // Cloudflare IPv4
 	}
 
 	net.DefaultResolver = &net.Resolver{
