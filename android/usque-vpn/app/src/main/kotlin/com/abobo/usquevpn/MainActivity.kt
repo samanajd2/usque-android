@@ -65,7 +65,7 @@ class MainActivity : Activity() {
 
     private fun loadSavedSettings() {
         // Load SNI
-        val savedSni = prefs.getString(KEY_SNI, "deepseek.com") ?: "deepseek.com"
+        val savedSni = prefs.getString(KEY_SNI, "youtube.com") ?: "youtube.com"
         Usqueandroid.setSNI(savedSni)
         
         // Load endpoint
@@ -120,7 +120,7 @@ class MainActivity : Activity() {
             .setNegativeButton("Cancel", null)
             .setNeutralButton("Reset") { _, _ ->
                 // Reset to defaults
-                saveSettings("deepseek.com", "")
+                saveSettings("youtube.com", "")
                 Usqueandroid.resetConnectionOptions()
                 Toast.makeText(this, "Settings reset to defaults", Toast.LENGTH_SHORT).show()
                 updateUI()
@@ -200,7 +200,7 @@ class MainActivity : Activity() {
         }
         
         // Show current settings (from prefs for persistence)
-        val currentSni = prefs.getString(KEY_SNI, Usqueandroid.getSNI()) ?: "deepseek.com"
+        val currentSni = prefs.getString(KEY_SNI, Usqueandroid.getSNI()) ?: "youtube.com"
         sniText.text = "SNI: $currentSni"
         
         val currentEndpoint = prefs.getString(KEY_ENDPOINT, "") ?: ""

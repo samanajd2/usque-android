@@ -57,7 +57,7 @@ var state = &tunnelState{}
 
 // Custom connection options
 var (
-	customSNI      = "deepseek.com" // Default SNI for censorship circumvention
+	customSNI      = "youtube.com" // Default SNI for censorship circumvention
 	customEndpoint = ""          // Custom endpoint with port, e.g. "162.159.198.2:443" or "[2606:4700:103::]:2408"
 	useHTTP2       = false       // Use TCP+HTTP/2 transport instead of QUIC/HTTP-3 (needs endpoint_h2_v4/v6 in config.json)
 )
@@ -643,7 +643,7 @@ func parseEndpoint(endpoint string) (string, int, error) {
 
 // SetSNI sets a custom SNI for the TLS connection.
 // This can help with censorship circumvention.
-// Default is "deepseek.com". Pass empty string to use Cloudflare's default.
+// Default is "youtube.com". Pass empty string to use Cloudflare's default.
 func SetSNI(sni string) {
 	customSNI = sni
 	log.Printf("SNI set to: %s", sni)
@@ -724,7 +724,7 @@ func RemoveLicenseKey(configPath string) string {
 
 // ResetConnectionOptions resets all connection options to defaults
 func ResetConnectionOptions() {
-	customSNI = "deepseek.com"
+	customSNI = "youtube.com"
 	customEndpoint = ""
 	useHTTP2 = false
 	log.Println("Connection options reset to defaults")

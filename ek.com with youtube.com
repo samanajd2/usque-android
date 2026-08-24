@@ -1,0 +1,283 @@
+[1mdiff --git a/Dockerfile b/Dockerfile[m
+[1mindex c1df589..c62e74d 100644[m
+[1m--- a/Dockerfile[m
+[1m+++ b/Dockerfile[m
+[36m@@ -18,4 +18,4 @@[m [mWORKDIR /app[m
+ [m
+ COPY --from=builder /app/usque /bin/usque[m
+ [m
+[31m-ENTRYPOINT ["/bin/usque"][m
+\ No newline at end of file[m
+[32m+[m[32mENTRYPOINT ["/bin/usque"][m
+[1mdiff --git a/README.md b/README.md[m
+[1mindex f4f4947..b01e136 100644[m
+[1m--- a/README.md[m
+[1m+++ b/README.md[m
+[36m@@ -651,4 +651,4 @@[m [mWhile the tool was made with security considerations in mind, I am not a securit[m
+ [m
+ **This tool is not affiliated with Cloudflare in any way. The tool was neither endorsed nor reviewed by Cloudflare. It is an independent research project. Cloudflare Warp, Warp+, 1.1.1.1™, Cloudflare Access™, Cloudflare Gateway™ and Cloudflare One™ [are all registered trademarks/wordmarks](https://www.cloudflare.com/trademark/) of Cloudflare, Inc. If you are a Cloudflare employee and you think this project is in any way harmful, please open an issue and I will do my best to contact you and resolve the issue.**[m
+ [m
+[31m-WireGuard™ is a [registered trademark](https://www.wireguard.com/trademark-policy/) of Jason A. Donenfeld.[m
+\ No newline at end of file[m
+[32m+[m[32mWireGuard™ is a [registered trademark](https://www.wireguard.com/trademark-policy/) of Jason A. Donenfeld.[m
+[1mdiff --git a/RESEARCH.md b/RESEARCH.md[m
+[1mindex 91c1e03..5c6fd30 100644[m
+[1m--- a/RESEARCH.md[m
+[1m+++ b/RESEARCH.md[m
+[36m@@ -302,4 +302,4 @@[m [mAnyway this was a great learning experience for me both technically as I learnt[m
+ - [msquic](https://github.com/microsoft/msquic) - Microsoft's performant QUIC implementation in C. As far as I can tell, lacks HTTP/3 support out of the box. Comes with bindings for C# and Rust.[m
+ - [quic-go](https://github.com/quic-go/quic-go) - A Go implementation of QUIC and HTTP/3. Great library with large test coverage.[m
+ [m
+[31m-This list is not exhaustive—there are many ongoing efforts to implement QUIC and MASQUE. These are the ones I encountered, used in my research, or found interesting for future reference. For a more comprehensive list of QUIC implementations, check out [this resource](https://github.com/quicwg/base-drafts/wiki/Implementations). If you know of another interesting project that should be added, let me know![m
+\ No newline at end of file[m
+[32m+[m[32mThis list is not exhaustive—there are many ongoing efforts to implement QUIC and MASQUE. These are the ones I encountered, used in my research, or found interesting for future reference. For a more comprehensive list of QUIC implementations, check out [this resource](https://github.com/quicwg/base-drafts/wiki/Implementations). If you know of another interesting project that should be added, let me know![m
+[1mdiff --git a/_docs/research/cryptobufferhook.js b/_docs/research/cryptobufferhook.js[m
+[1mindex 4b5d973..c6db64c 100644[m
+[1m--- a/_docs/research/cryptobufferhook.js[m
+[1m+++ b/_docs/research/cryptobufferhook.js[m
+[36m@@ -67,4 +67,4 @@[m [mJava.perform(function () {[m
+             }[m
+         });[m
+     }[m
+[31m-});[m
+\ No newline at end of file[m
+[32m+[m[32m});[m
+[1mdiff --git a/_docs/research/quic_initial_clienthello.png b/_docs/research/quic_initial_clienthello.png[m
+[1mindex f93f4d7..1987b79 100644[m
+Binary files a/_docs/research/quic_initial_clienthello.png and b/_docs/research/quic_initial_clienthello.png differ
+[1mdiff --git a/android/usque-vpn/README.md b/android/usque-vpn/README.md[m
+[1mindex e414b1d..51bc459 100644[m
+[1m--- a/android/usque-vpn/README.md[m
+[1m+++ b/android/usque-vpn/README.md[m
+[36m@@ -52,7 +52,7 @@[m [mOutput: `app/build/outputs/apk/debug/app-debug.apk`[m
+ [m
+ | Option | Description | Default |[m
+ |--------|-------------|---------|[m
+[31m-| SNI | Server Name Indication for TLS | `deepseek.com` |[m
+[32m+[m[32m| SNI | Server Name Indication for TLS | `youtube.com` |[m
+ | IPv4 Endpoint | WARP server IPv4 | From registration |[m
+ | IPv6 Endpoint | WARP server IPv6 | From registration |[m
+ | Use IPv6 | Connect via IPv6 endpoint | Off |[m
+[1mdiff --git a/android/usque-vpn/app/src/main/AndroidManifest.xml b/android/usque-vpn/app/src/main/AndroidManifest.xml[m
+[1mindex e5cc5db..ee42c34 100644[m
+[1m--- a/android/usque-vpn/app/src/main/AndroidManifest.xml[m
+[1m+++ b/android/usque-vpn/app/src/main/AndroidManifest.xml[m
+[36m@@ -42,4 +42,4 @@[m
+ [m
+     </application>[m
+ [m
+[31m-</manifest>[m
+\ No newline at end of file[m
+[32m+[m[32m</manifest>[m
+[1mdiff --git a/android/usque-vpn/app/src/main/kotlin/com/abobo/usquevpn/MainActivity.kt b/android/usque-vpn/app/src/main/kotlin/com/abobo/usquevpn/MainActivity.kt[m
+[1mindex e958062..a6a172d 100644[m
+[1m--- a/android/usque-vpn/app/src/main/kotlin/com/abobo/usquevpn/MainActivity.kt[m
+[1m+++ b/android/usque-vpn/app/src/main/kotlin/com/abobo/usquevpn/MainActivity.kt[m
+[36m@@ -65,7 +65,7 @@[m [mclass MainActivity : Activity() {[m
+ [m
+     private fun loadSavedSettings() {[m
+         // Load SNI[m
+[31m-        val savedSni = prefs.getString(KEY_SNI, "deepseek.com") ?: "deepseek.com"[m
+[32m+[m[32m        val savedSni = prefs.getString(KEY_SNI, "youtube.com") ?: "youtube.com"[m
+         Usqueandroid.setSNI(savedSni)[m
+         [m
+         // Load endpoint[m
+[36m@@ -120,7 +120,7 @@[m [mclass MainActivity : Activity() {[m
+             .setNegativeButton("Cancel", null)[m
+             .setNeutralButton("Reset") { _, _ ->[m
+                 // Reset to defaults[m
+[31m-                saveSettings("deepseek.com", "")[m
+[32m+[m[32m                saveSettings("youtube.com", "")[m
+                 Usqueandroid.resetConnectionOptions()[m
+                 Toast.makeText(this, "Settings reset to defaults", Toast.LENGTH_SHORT).show()[m
+                 updateUI()[m
+[36m@@ -200,7 +200,7 @@[m [mclass MainActivity : Activity() {[m
+         }[m
+         [m
+         // Show current settings (from prefs for persistence)[m
+[31m-        val currentSni = prefs.getString(KEY_SNI, Usqueandroid.getSNI()) ?: "deepseek.com"[m
+[32m+[m[32m        val currentSni = prefs.getString(KEY_SNI, Usqueandroid.getSNI()) ?: "youtube.com"[m
+         sniText.text = "SNI: $currentSni"[m
+         [m
+         val currentEndpoint = prefs.getString(KEY_ENDPOINT, "") ?: ""[m
+[1mdiff --git a/android/usque-vpn/app/src/main/res/drawable/button_background.xml b/android/usque-vpn/app/src/main/res/drawable/button_background.xml[m
+[1mindex 6c56acc..9a41732 100644[m
+[1m--- a/android/usque-vpn/app/src/main/res/drawable/button_background.xml[m
+[1m+++ b/android/usque-vpn/app/src/main/res/drawable/button_background.xml[m
+[36m@@ -15,4 +15,4 @@[m
+             <corners android:radius="28dp" />[m
+         </shape>[m
+     </item>[m
+[31m-</selector>[m
+\ No newline at end of file[m
+[32m+[m[32m</selector>[m
+[1mdiff --git a/android/usque-vpn/app/src/main/res/drawable/button_secondary_background.xml b/android/usque-vpn/app/src/main/res/drawable/button_secondary_background.xml[m
+[1mindex 6846b8c..298137a 100644[m
+[1m--- a/android/usque-vpn/app/src/main/res/drawable/button_secondary_background.xml[m
+[1m+++ b/android/usque-vpn/app/src/main/res/drawable/button_secondary_background.xml[m
+[36m@@ -3,4 +3,4 @@[m
+     android:shape="rectangle">[m
+     <solid android:color="#353555" />[m
+     <corners android:radius="28dp" />[m
+[31m-</shape>[m
+\ No newline at end of file[m
+[32m+[m[32m</shape>[m
+[1mdiff --git a/android/usque-vpn/app/src/main/res/drawable/card_background.xml b/android/usque-vpn/app/src/main/res/drawable/card_background.xml[m
+[1mindex 3da245e..92fda71 100644[m
+[1m--- a/android/usque-vpn/app/src/main/res/drawable/card_background.xml[m
+[1m+++ b/android/usque-vpn/app/src/main/res/drawable/card_background.xml[m
+[36m@@ -3,4 +3,4 @@[m
+     android:shape="rectangle">[m
+     <solid android:color="#252542" />[m
+     <corners android:radius="16dp" />[m
+[31m-</shape>[m
+\ No newline at end of file[m
+[32m+[m[32m</shape>[m
+[1mdiff --git a/android/usque-vpn/app/src/main/res/drawable/ic_vpn.xml b/android/usque-vpn/app/src/main/res/drawable/ic_vpn.xml[m
+[1mindex ee729ac..7b7d96d 100644[m
+[1m--- a/android/usque-vpn/app/src/main/res/drawable/ic_vpn.xml[m
+[1m+++ b/android/usque-vpn/app/src/main/res/drawable/ic_vpn.xml[m
+[36m@@ -8,4 +8,4 @@[m
+     <path[m
+         android:fillColor="#6c5ce7"[m
+         android:pathData="M12,1L3,5v6c0,5.55 3.84,10.74 9,12 5.16,-1.26 9,-6.45 9,-12V5L12,1zM12,5.6c1.32,0 2.4,1.08 2.4,2.4 0,1.32 -1.08,2.4 -2.4,2.4 -1.32,0 -2.4,-1.08 -2.4,-2.4 0,-1.32 1.08,-2.4 2.4,-2.4zM12,16.8c-2,0 -3.8,-1.02 -4.8,-2.64 0,-1.6 3.2,-2.48 4.8,-2.48 1.6,0 4.8,0.88 4.8,2.48 -1,1.62 -2.8,2.64 -4.8,2.64z" />[m
+[31m-</vector>[m
+\ No newline at end of file[m
+[32m+[m[32m</vector>[m
+[1mdiff --git a/android/usque-vpn/app/src/main/res/layout/activity_main.xml b/android/usque-vpn/app/src/main/res/layout/activity_main.xml[m
+[1mindex cff0c3b..977d0f9 100644[m
+[1m--- a/android/usque-vpn/app/src/main/res/layout/activity_main.xml[m
+[1m+++ b/android/usque-vpn/app/src/main/res/layout/activity_main.xml[m
+[36m@@ -98,7 +98,7 @@[m
+             android:id="@+id/sni_text"[m
+             android:layout_width="wrap_content"[m
+             android:layout_height="wrap_content"[m
+[31m-            android:text="SNI: deepseek.com"[m
+[32m+[m[32m            android:text="SNI: youtube.com"[m
+             android:textSize="12sp"[m
+             android:textColor="#aaaaaa" />[m
+ [m
+[36m@@ -155,4 +155,4 @@[m
+         android:textColor="#555555"[m
+         android:layout_marginTop="32dp" />[m
+ [m
+[31m-</LinearLayout>[m
+\ No newline at end of file[m
+[32m+[m[32m</LinearLayout>[m
+[1mdiff --git a/android/usque-vpn/app/src/main/res/layout/dialog_settings.xml b/android/usque-vpn/app/src/main/res/layout/dialog_settings.xml[m
+[1mindex 93fe7c0..ba71d48 100644[m
+[1m--- a/android/usque-vpn/app/src/main/res/layout/dialog_settings.xml[m
+[1m+++ b/android/usque-vpn/app/src/main/res/layout/dialog_settings.xml[m
+[36m@@ -18,7 +18,7 @@[m
+         android:id="@+id/sni_input"[m
+         android:layout_width="match_parent"[m
+         android:layout_height="wrap_content"[m
+[31m-        android:hint="deepseek.com"[m
+[32m+[m[32m        android:hint="youtube.com"[m
+         android:inputType="textUri"[m
+         android:layout_marginBottom="16dp" />[m
+ [m
+[36m@@ -47,4 +47,4 @@[m
+         android:textSize="11sp"[m
+         android:lineSpacingExtra="2dp" />[m
+ [m
+[31m-</LinearLayout>[m
+\ No newline at end of file[m
+[32m+[m[32m</LinearLayout>[m
+[1mdiff --git a/android/usque-vpn/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml b/android/usque-vpn/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml[m
+[1mindex 21752a0..fc614f1 100644[m
+[1m--- a/android/usque-vpn/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml[m
+[1m+++ b/android/usque-vpn/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml[m
+[36m@@ -2,4 +2,4 @@[m
+ <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">[m
+     <background android:drawable="@color/ic_launcher_background" />[m
+     <foreground android:drawable="@drawable/ic_vpn" />[m
+[31m-</adaptive-icon>[m
+\ No newline at end of file[m
+[32m+[m[32m</adaptive-icon>[m
+[1mdiff --git a/android/usque-vpn/app/src/main/res/values/colors.xml b/android/usque-vpn/app/src/main/res/values/colors.xml[m
+[1mindex 752ed2a..36c1f35 100644[m
+[1m--- a/android/usque-vpn/app/src/main/res/values/colors.xml[m
+[1m+++ b/android/usque-vpn/app/src/main/res/values/colors.xml[m
+[36m@@ -1,4 +1,4 @@[m
+ <?xml version="1.0" encoding="utf-8"?>[m
+ <resources>[m
+     <color name="ic_launcher_background">#6c5ce7</color>[m
+[31m-</resources>[m
+\ No newline at end of file[m
+[32m+[m[32m</resources>[m
+[1mdiff --git a/android/usque-vpn/app/src/main/res/values/strings.xml b/android/usque-vpn/app/src/main/res/values/strings.xml[m
+[1mindex 568fbe5..aab064e 100644[m
+[1m--- a/android/usque-vpn/app/src/main/res/values/strings.xml[m
+[1m+++ b/android/usque-vpn/app/src/main/res/values/strings.xml[m
+[36m@@ -1,4 +1,4 @@[m
+ <?xml version="1.0" encoding="utf-8"?>[m
+ <resources>[m
+     <string name="app_name">Usque VPN</string>[m
+[31m-</resources>[m
+\ No newline at end of file[m
+[32m+[m[32m</resources>[m
+[1mdiff --git a/android/usque-vpn/app/src/main/res/values/themes.xml b/android/usque-vpn/app/src/main/res/values/themes.xml[m
+[1mindex 8d03aa3..3e85768 100644[m
+[1m--- a/android/usque-vpn/app/src/main/res/values/themes.xml[m
+[1m+++ b/android/usque-vpn/app/src/main/res/values/themes.xml[m
+[36m@@ -7,4 +7,4 @@[m
+         <item name="android:statusBarColor">#1a1a2e</item>[m
+         <item name="android:navigationBarColor">#1a1a2e</item>[m
+     </style>[m
+[31m-</resources>[m
+\ No newline at end of file[m
+[32m+[m[32m</resources>[m
+[1mdiff --git a/android/usque-vpn/app/src/main/res/xml/network_security_config.xml b/android/usque-vpn/app/src/main/res/xml/network_security_config.xml[m
+[1mindex 007dfe7..90e9e84 100644[m
+[1m--- a/android/usque-vpn/app/src/main/res/xml/network_security_config.xml[m
+[1m+++ b/android/usque-vpn/app/src/main/res/xml/network_security_config.xml[m
+[36m@@ -5,4 +5,4 @@[m
+         <domain includeSubdomains="true">localhost</domain>[m
+         <domain includeSubdomains="true">127.0.0.1</domain>[m
+     </domain-config>[m
+[31m-</network-security-config>[m
+\ No newline at end of file[m
+[32m+[m[32m</network-security-config>[m
+[1mdiff --git a/android/usque_android.go b/android/usque_android.go[m
+[1mindex e05bedd..c48ec3e 100644[m
+[1m--- a/android/usque_android.go[m
+[1m+++ b/android/usque_android.go[m
+[36m@@ -57,7 +57,7 @@[m [mvar state = &tunnelState{}[m
+ [m
+ // Custom connection options[m
+ var ([m
+[31m-	customSNI      = "deepseek.com" // Default SNI for censorship circumvention[m
+[32m+[m	[32mcustomSNI      = "youtube.com" // Default SNI for censorship circumvention[m
+ 	customEndpoint = ""          // Custom endpoint with port, e.g. "162.159.198.2:443" or "[2606:4700:103::]:2408"[m
+ 	useHTTP2       = false       // Use TCP+HTTP/2 transport instead of QUIC/HTTP-3 (needs endpoint_h2_v4/v6 in config.json)[m
+ )[m
+[36m@@ -643,7 +643,7 @@[m [mfunc parseEndpoint(endpoint string) (string, int, error) {[m
+ [m
+ // SetSNI sets a custom SNI for the TLS connection.[m
+ // This can help with censorship circumvention.[m
+[31m-// Default is "deepseek.com". Pass empty string to use Cloudflare's default.[m
+[32m+[m[32m// Default is "youtube.com". Pass empty string to use Cloudflare's default.[m
+ func SetSNI(sni string) {[m
+ 	customSNI = sni[m
+ 	log.Printf("SNI set to: %s", sni)[m
+[36m@@ -724,7 +724,7 @@[m [mfunc RemoveLicenseKey(configPath string) string {[m
+ [m
+ // ResetConnectionOptions resets all connection options to defaults[m
+ func ResetConnectionOptions() {[m
+[31m-	customSNI = "deepseek.com"[m
+[32m+[m	[32mcustomSNI = "youtube.com"[m
+ 	customEndpoint = ""[m
+ 	useHTTP2 = false[m
+ 	log.Println("Connection options reset to defaults")[m
+[1mdiff --git a/goreleaser.yml b/goreleaser.yml[m
+[1mindex 47a242f..5d04734 100644[m
+[1m--- a/goreleaser.yml[m
+[1m+++ b/goreleaser.yml[m
+[36m@@ -134,4 +134,4 @@[m [mchecksum:[m
+ release:[m
+   github:[m
+     owner: Diniboy1123[m
+[31m-    name: usque[m
+\ No newline at end of file[m
+[32m+[m[32m    name: usque[m
