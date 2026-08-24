@@ -106,11 +106,11 @@ class UsqueVpnService : VpnService() {
             }
 
             // Add DNS servers (both IPv4 and IPv6)
-            builder.addDnsServer("1.1.1.1")
-            builder.addDnsServer("1.0.0.1")
+            builder.addDnsServer("94.140.14.14")
+            builder.addDnsServer("94.140.15.15")
             // IPv6 DNS
-            builder.addDnsServer("2606:4700:4700::1111")
-            builder.addDnsServer("2606:4700:4700::1001")
+            builder.addDnsServer("2a10:50c0::ad1:ff")
+            builder.addDnsServer("2a10:50c0::ad2:ff")
 
             // Exclude the Cloudflare endpoint from VPN routing
             // This is critical: the QUIC connection to Cloudflare must NOT go through the VPN
